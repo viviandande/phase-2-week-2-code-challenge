@@ -37,6 +37,6 @@ Bot battlr
 ## Contact Information
 * Email : viviandande16@gmail.com
 *****
-## [License]()
+## [License](https://github.com/viviandande/phase-2-week-2-code-challenge/blob/main/licence)
 MIT License
 Copyright (c) 2022 Vivian Dande
