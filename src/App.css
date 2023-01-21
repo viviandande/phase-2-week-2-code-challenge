@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.bot{
+  border: solid 1px rgb(38, 139, 221);
+  min-width: 120px;
+  background-color: white;
+  margin: 10px;
+  max-width: 150px;
+
+}
+.bot img{
+  width: 100%;
+  background-color: grey;
+}
+.bot > p{
+  word-break:break-all;
+}
+.botState{
+  display: flex;
+  justify-content: space-evenly;
+}
+.bot-collection{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.army{
+  display: flex;
+  min-height: 150px;
+  background-color: rgb(147, 235, 169);
+}
