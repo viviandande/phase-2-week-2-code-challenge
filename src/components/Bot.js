@@ -1,34 +1,25 @@
-function Bot({bot,army,setArmy,container,setSetArmy, deletePermanently}){
+function Bot({setDisplay, setBotToDisplay, bot,army,setArmy, container, removeFromArmy, discharge}){
     const { name,health,damage,armor,bot_class,catchphrase,avatar_url} = bot;
 
     function handleClick(){
 
 
 
-        if(container === "collectionContainer"){
-            let isInArmy = false;
-        for(let theBot of army){
-            if(theBot.id === bot.id){
-                isInArmy = true;
-                break;
-            }
+        if(!container) {
+            setBotToDisplay(bot)
+            setDisplay("specs")
+        } else {
+            removeFromArmy(bot)
         }
-
-        if(!isInArmy){
-            setArmy([...army,bot]);
-         }
-        }else{
-            setSetArmy(bot)
-        }
-     }
-     function handleDischarge(e){
-        e.preventDefault();
-        e.stopPropagation();
-
-        deletePermanently(bot)
-     }
+    }
     return(
         <div className="bot" onClick={handleClick}>
+            {container ? <button className="deletebutton" onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+
+                discharge(bot)
+            }}>X</button> : null}
             <img src={avatar_url} alt=''/>
             <h3>{name}{bot_class}</h3>
             <p>{catchphrase}</p>
@@ -37,7 +28,6 @@ function Bot({bot,army,setArmy,container,setSetArmy, deletePermanently}){
                 <div>⚡<span>{damage}</span></div>
                 <div>🛡<span>{armor}</span></div>
             </div>
-           {container ==='armyContainer' ? <button onClick={handleDischarge}>X</button> : null}
         </div>
     )
 }
